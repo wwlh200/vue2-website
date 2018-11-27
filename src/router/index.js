@@ -15,17 +15,17 @@ let router = new Router({
       children: [
         {
           path: 'HomePages', component(resolve) {
-          require(['../pages/HomePages.vue'], resolve)
-        }
+            require(['../pages/HomePages.vue'], resolve)
+          }
         },
         {
           path: 'Help', component(resolve) {
-          require(['../pages/Help.vue'], resolve)
-        }
+            require(['../pages/Help.vue'], resolve)
+          }
         }
       ]
     },
-    {path: '*', redirect: {name: 'frame'}}
+    { path: '*', redirect: { name: 'frame' } }
   ],
   mode: 'history',
   scrollBehavior(to, from, savedPosition) {
