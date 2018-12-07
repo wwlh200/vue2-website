@@ -19,8 +19,8 @@ let router = new Router({
           }
         },
         {
-          path: 'Help', component(resolve) {
-            require(['../pages/Help.vue'], resolve)
+          path: 'Products', component(resolve) {
+            require(['../pages/Products.vue'], resolve)
           }
         }
       ]

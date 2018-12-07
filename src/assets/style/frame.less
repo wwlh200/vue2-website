@@ -4,42 +4,26 @@
   &-bg {
     width: 100%;
     height: 100%;
-    background: @title-color url("http://shanchain-web.oss-cn-beijing.aliyuncs.com/web_home/officialwebsite_bg_banner_default.png") no-repeat bottom center;
+    background-color: #224b97;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     div {
-      text-align: center;
-      p:nth-child(1){
-        font-family: @helvetica;
-        font-size: @middle-size;
-        color: @white-color;
-      }
-      p:nth-child(2){
-        font-family: @pingFang;
-        font-size: @huge-size;
-        color: @white-color;
-        text-shadow: 1px 1px 2px @shadow-color;
-      }
-      a{
-        font-family: @helvetica;
-        font-size: @huge-size;
-        color:@deepBlue-color;
-        cursor:pointer;
-        text-decoration:none;
-        &:hover{
-          color: inherit;
-          text-decoration:none;
-        }
-      }
-      img{
-        margin: 0 5px;
-        display: inline-block !important;
-        width: 25px;
-        height: 25px;
+      width: 100%;
+      height: 100%;
+      .el-carousel__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
+  }
+  &-bg1{
+    width: 100%;
+    height: 100px;
+    background-color: #224b97;
+    background-size: cover;
   }
   &-navbar {
     padding: 20px 0;
@@ -49,12 +33,18 @@
       background: transparent !important;
       font-family: PingFangSC-Regular;
       font-size: @middle-size;
-      color: @white-color !important;
+      color: @white-color  !important;
     }
     a:hover {
-      color: @deepBlue-color !important;
+      color: @deepBlue-color  !important;
       background: transparent;
       outline: 0
+    }
+    ul{
+      display: flex;
+      div{
+        margin: auto;
+      }
     }
   }
   &-header {
@@ -81,6 +71,7 @@
 }
 
 /*-webkit-transition ;-moz-transition*/
+
 .top-nav {
   padding: 15px 0;
   background: @drag-color;
@@ -99,13 +90,13 @@ button.navbar-toggle {
 }
 
 //整个背景都是transparent透明的，会看不到，所以再次覆盖一下
-button.navbar-toggle > span.icon-bar {
+button.navbar-toggle>span.icon-bar {
   background-color: @drag-color
 }
 
 //滚动条
-.nav > .active {
-  border-bottom: 3px solid rgba(59,187,202,1)
+.nav>.active {
+  border-bottom: 3px solid rgba(59, 187, 202, 1)
 }
 
 .navbar-collapse {
@@ -114,18 +105,21 @@ button.navbar-toggle > span.icon-bar {
   overflow-x: visible;
   -webkit-overflow-scrolling: touch;
   border-top: 1px solid transparent;
-  -webkit-box-shadow: inset 0 0px 0 rgba(255,255,255,.1);
-  box-shadow: inset 0 0px 0 rgba(255,255,255,.1);
+  -webkit-box-shadow: inset 0 0px 0 rgba(255, 255, 255, .1);
+  box-shadow: inset 0 0px 0 rgba(255, 255, 255, .1);
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767px) {
   .frame-navbar {
     padding: 20px 0;
-    background:@drag-color ;
+    background: @drag-color ;
   }
 }
 
-
-
-
-
+.el-dropdown {
+  text-align: center;
+  background: transparent !important;
+  font-family: PingFangSC-Regular;
+  font-size: 1.8rem;
+  color: #ffffff !important;
+}
