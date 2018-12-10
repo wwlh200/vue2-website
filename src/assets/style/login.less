@@ -1,0 +1,58 @@
+.login {
+  &-bg {
+    width: 100%;
+    height: 100%;
+    background: #000000 url('http://szhew.oss-cn-shenzhen.aliyuncs.com/login.png') center no-repeat;
+    background-size:100%;
+    .ivu-row .ivu-form-item {
+      margin: 0;
+      vertical-align: top;
+    }
+  }
+  &-page {
+    text-align: center;
+    padding-top: 10%;
+    margin: 0 auto;
+    position: relative;
+    &-header{
+      img{
+        height: 90px;
+        width: 90px;
+        vertical-align:middle
+      }
+      span{
+        font-size: 40px;
+        color: @white-color;
+        display: inline-block;
+        vertical-align:middle
+      }
+    }
+    form {
+      width: 370px;
+      padding: 0 20px 0 30px;
+    }
+  }
+  &-box {
+    vertical-align: top;
+    display: inline-block;
+    width: 370px;
+    height: 300px;
+    .ivu-form-item {
+      margin: 25px 0;
+    }
+  }
+  &-title {
+    line-height: 33px;
+    font-size: 18px;
+    color: #e5e5e5;
+    padding-left: 30px;
+  }
+  &-btn {
+    background-color: @primary-color;
+    border-color: @primary-color;
+    font-size: 20px;
+    height: 46px;
+    color: @white-color;
+    width: 100%;
+  }
+}

@@ -10,6 +10,7 @@
     <div class="contact-subject-copy">
       <p>Copyright © 2018.深圳市华尔威光电科技有限公司 All Rights</p>
       <p><a href="http://www.miitbeian.gov.cn" target="_Blank">粤ICP备18121307号-1</a></p>
+      <p><a href="javascript:void" @click="goLogin">网站维护</a></p>
     </div>
   </div>
 </div>
@@ -20,6 +21,12 @@ export default {
   data() {
     return {}
   },
-  methods: {}
+ methods: {
+    goLogin() {
+      this.$router.replace({
+        path: '/Login'
+      })
+    }
+  }
 }
 </script>

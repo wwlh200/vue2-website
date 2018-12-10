@@ -44,8 +44,6 @@
               <el-dropdown-item command="goProducts">点阵/数码管/单元板</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
-
-          <!-- <li><a href="javascript:void(0)" @click="goproducts">产品</a></li> -->
         </ul>
       </div>
     </div>
@@ -80,7 +78,6 @@ export default {
     this.$router.replace({
       path: '/frame/HomePages'
     })
-    xlsx2json();
   },
   mounted: function () {
     this.$nextTick(function () {
