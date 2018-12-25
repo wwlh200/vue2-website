@@ -37,11 +37,11 @@
                公司产品<i class="el-icon-arrow-down el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item command="goProducts">透明屏</el-dropdown-item>
-              <el-dropdown-item command="goProducts">显示屏</el-dropdown-item>
-              <el-dropdown-item command="goProducts">micro-LED</el-dropdown-item>
-              <el-dropdown-item command="goProducts">室内外模组</el-dropdown-item>
-              <el-dropdown-item command="goProducts">点阵/数码管/单元板</el-dropdown-item>
+              <el-dropdown-item command="goProducts-type1">透明屏</el-dropdown-item>
+              <el-dropdown-item command="goProducts-type2">显示屏</el-dropdown-item>
+              <el-dropdown-item command="goProducts-type3">micro-LED</el-dropdown-item>
+              <el-dropdown-item command="goProducts-type4">室内外模组</el-dropdown-item>
+              <el-dropdown-item command="goProducts-type5">点阵/数码管/单元板</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </ul>
@@ -78,6 +78,7 @@ export default {
     this.$router.replace({
       path: '/frame/HomePages'
     })
+
   },
   mounted: function () {
     this.$nextTick(function () {
@@ -97,10 +98,8 @@ export default {
   },
   methods: {
     handleCommand(command) {
-      console.log(command)
-      if (command == 'goProducts') {
-        this.goProducts();
-      }
+      let arr = command.split('-');
+      this.goProducts(arr[1]);
 
     },
     goHomePages() {
@@ -108,12 +107,16 @@ export default {
       this.$router.replace({
         path: '/frame/HomePages'
       })
+
     },
-    goProducts() {
+    goProducts(type) {
       this.showHomePageBg = false;
-      this.$router.replace({
-        path: '/frame/Products'
-      })
+      this.$router.push({
+        name: `Products`,
+        params: {
+          type: type
+        }
+      });
     }
   }
 }

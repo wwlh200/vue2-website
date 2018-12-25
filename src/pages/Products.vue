@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-3" v-for="product in products" :key="product.id">
       <el-card :body-style="{ padding: '0px' }">
-        <img :src="product.images[0].url" :alt="product.images[0].name" />
+        <img :src="product.images[0]" :alt="product.images[0]" />
         <div style="padding: 14px;">
           <span>{{product.model}} {{product.type}}</span>
           <div class="bottom clearfix">
@@ -17,73 +17,54 @@
 </template>
 
 <script>
+import fetch from 'isomorphic-fetch';
+import {
+  Loading
+} from 'element-ui';
 export default {
   data() {
     return {
-      products: [{
-          id: '1',
-          model: 'hewm2388Aw',
-          type: '户内白光模块',
-          size: '60.96 *60.96mm',
-          pitch: '7.62mm （0.3″）',
-          version: '1.0',
-          explain: '户内白光模块',
-          document: '',
-          images: [{
-            'name': 'carousel1',
-            'url': 'http://szhew.oss-cn-shenzhen.aliyuncs.com/car1.jpg'
-          }]
-        },
-        {
-          id: '2',
-          model: 'hewm2388Aw',
-          type: '户内白光模块',
-          size: '60.96 *60.96mm',
-          pitch: '7.62mm （0.3″）',
-          version: '1.0',
-          explain: '户内白光模块',
-          document: '',
-          images: [{
-            'name': 'carousel1',
-            'url': 'http://szhew.oss-cn-shenzhen.aliyuncs.com/car1.jpg'
-          }]
-        },
-        {
-          id: '3',
-          model: 'hewm2388Aw',
-          type: '户内白光模块',
-          size: '60.96 *60.96mm',
-          pitch: '7.62mm （0.3″）',
-          version: '1.0',
-          explain: '户内白光模块',
-          document: '',
-          images: [{
-            'name': 'carousel1',
-            'url': 'http://szhew.oss-cn-shenzhen.aliyuncs.com/car1.jpg'
-          }]
-        },
-        {
-          id: '4',
-          model: 'hewm2388Aw',
-          type: '户内白光模块',
-          size: '60.96 *60.96mm',
-          pitch: '7.62mm （0.3″）',
-          version: '1.0',
-          explain: '户内白光模块',
-          document: '',
-          images: [{
-            'name': 'carousel1',
-            'url': 'http://szhew.oss-cn-shenzhen.aliyuncs.com/car1.jpg'
-          }]
-        },
-      ]
+      products: [],
+      type: ''
     }
+  },
+  watch: {
+    '$route': 'getProducts'
+  },
+  created() {
+    this.getProducts();
   },
   methods: {
     goProduct(product) {
       this.$router.push({
-        name: 'Product', params: { product: product }
+        name: 'Product',
+        params: {
+          product: product
+        }
       });
+    },
+    getProducts() {
+      let loadingInstance = Loading.service();
+      fetch(`http://localhost:3000/api/product/search?type=${this.$route.params.type}`, {
+          method: 'GET',
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }).then((response) => {
+          if (response.status >= 400) {
+            throw new Error("Bad response from server");
+          }
+          return response.json();
+        })
+        .then((datas) => {
+          datas.map(data => {
+            data.images = data.images.split('===');
+          })
+          this.products = datas;
+          this.$nextTick(() => { // 以服务的方式调用的 Loading 需要异步关闭
+            loadingInstance.close();
+          });
+        });
     }
   }
 }

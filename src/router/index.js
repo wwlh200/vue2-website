@@ -14,25 +14,27 @@ let router = new Router({
       },
       children: [
         {
-          path: 'HomePages', name: 'HomePages', component(resolve) {
+          name: 'HomePages',
+          path: 'HomePages', component(resolve) {
             require(['../pages/HomePages.vue'], resolve)
           }
         },
         {
-          name: 'Products', path: 'Products', component(resolve) {
+          name: 'Products',
+          path: '/Products/:type', component(resolve) {
             require(['../pages/Products.vue'], resolve)
           }
         },
         {
           name: 'Product',
-          path: 'Product', component(resolve) {
+          path: '/Product', component(resolve) {
             require(['../pages/Product.vue'], resolve)
           }
         }
       ]
     },
-    {path: '/login', name: 'login', hidden:true, component (resolve) { require(['../pages/Login'], resolve);}},
-    {path: '/backPage', name: 'backPage', hidden:true, component (resolve) { require(['../pages/BackPage'], resolve);}},
+    { path: '/login', name: 'login', hidden: true, component(resolve) { require(['../pages/Login'], resolve); } },
+    { path: '/backPage', name: 'backPage', hidden: true, component(resolve) { require(['../pages/BackPage'], resolve); } },
     { path: '*', redirect: { name: 'frame' } }
   ],
   mode: 'history',
