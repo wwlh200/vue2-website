@@ -5,6 +5,7 @@
   "author": "wwlh200 <wwlh200@163.com>",
   "private": true,
   "scripts": {
+    "start": "node service/bin/www",
     "dev": "node build/dev-server.js",
     "build": "node build/build.js"
   },
