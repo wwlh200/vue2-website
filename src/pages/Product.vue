@@ -13,7 +13,7 @@
       <p>点间距: {{product.pitch}}</p>
       <p>版本: {{product.version}}</p>
       <p>说明: {{product.explain}}</p>
-      <p><a :href="product.images[0]">产品规格书（点击下载）</a></p>
+      <p><a :href="product.document">产品规格书（点击下载）</a></p>
 
     </div>
   </el-card>

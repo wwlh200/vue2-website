@@ -45,7 +45,7 @@ export default {
     },
     getProducts() {
       let loadingInstance = Loading.service();
-      fetch(`http://localhost:3000/api/product/search?type=${this.$route.params.type}`, {
+      fetch(`http://111.230.245.131:3000/api/product/search?type=${this.$route.params.type}`, {
           method: 'GET',
           headers: {
             "Content-Type": "application/json"

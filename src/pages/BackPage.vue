@@ -172,7 +172,7 @@ export default {
     },
     getTableData() {
       let loadingInstance = Loading.service();
-      fetch(`http://localhost:3000/api/product/search?type=${this.value}`, {
+      fetch(`http://111.230.245.131:3000/api/product/search?type=${this.value}`, {
           method: 'GET',
           headers: {
             "Content-Type": "application/json"
@@ -195,7 +195,7 @@ export default {
       debugger;
       let [url, reqData, title, params] = ['', {}, '', ''];
       if (action == 'A') {
-        url = 'http://localhost:3000/api/product/add';
+        url = 'http://111.230.245.131:3000/api/product/add';
         reqData = data;
         params = {
           method: 'POST',
@@ -206,7 +206,7 @@ export default {
         };
         title = '新增';
       } else if (action == 'U') {
-        url = 'http://localhost:3000/api/product/update';
+        url = 'http://111.230.245.131:3000/api/product/update';
         reqData = data;
         params = {
           method: 'POST',
@@ -217,7 +217,7 @@ export default {
         };
         title = '修改';
       } else {
-        url = `http://localhost:3000/api/product/del?model=${data.model}`;
+        url = `http://111.230.245.131:3000/api/product/del?model=${data.model}`;
         params = {
           method: 'GET',
           headers: {
