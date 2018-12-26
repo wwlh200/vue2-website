@@ -32,7 +32,7 @@
           <li><a href="#homePage" @click="goHomePages">首页</a></li>
           <li><a href="#abstract" @click="goHomePages">公司简介</a></li>
           <li><a href="#contact" @click="goHomePages">联系我们</a></li>
-          <el-dropdown @command="handleCommand">
+          <el-dropdown @command="handleCommand" trigger="click">
             <span class="el-dropdown-link">
                公司产品<i class="el-icon-arrow-down el-icon--right"></i>
             </span>
