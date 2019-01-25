@@ -21,7 +21,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors({
-  origin:['http://111.230.245.131:8089'],
+  origin:['http://127.0.0.1:8089'],
   methods:['GET','POST'],
   alloweHeaders:['Conten-Type', 'Authorization']
 }));

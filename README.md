@@ -11,4 +11,4 @@ vue2-responsive-website
 3. 执行npm run dev 命令，就可以在开发环境下打开页面
 4. 执行npm run build 命令，打包生产环境
 
-详细效果请看：http://www.shanchain.com/
+详细效果请看：http://www.szhewled.com/
